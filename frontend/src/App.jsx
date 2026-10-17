@@ -30,7 +30,6 @@ function HomeLanding() {
               <div className="portal-icon admin-icon">
                 <Shield size={24} />
               </div>
-              <span className="portal-theme-pill admin-theme">Navy & Teal</span>
             </div>
             <h3 className="portal-card-title">1. Admin Command Center</h3>
             <p className="portal-card-desc">
@@ -48,7 +47,6 @@ function HomeLanding() {
               <div className="portal-icon host-icon">
                 <Utensils size={24} />
               </div>
-              <span className="portal-theme-pill host-theme">Forest & Cream</span>
             </div>
             <h3 className="portal-card-title">2. Event Host Dispatch</h3>
             <p className="portal-card-desc">
@@ -66,7 +64,6 @@ function HomeLanding() {
               <div className="portal-icon ngo-icon">
                 <Building2 size={24} />
               </div>
-              <span className="portal-theme-pill ngo-theme">Royal Indigo</span>
             </div>
             <h3 className="portal-card-title">3. Verified NGO Radar</h3>
             <p className="portal-card-desc">

@@ -83,7 +83,6 @@ export default function Navbar() {
           >
             <Shield size={16} />
             <span>Admin Command</span>
-            <span className="role-tag admin-tag">Navy & Teal</span>
           </NavLink>
 
           <NavLink
@@ -92,7 +91,6 @@ export default function Navbar() {
           >
             <User size={16} />
             <span>Event Host</span>
-            <span className="role-tag host-tag">Forest & Cream</span>
           </NavLink>
 
           <NavLink
@@ -101,7 +99,6 @@ export default function Navbar() {
           >
             <Building2 size={16} />
             <span>NGO Portal</span>
-            <span className="role-tag ngo-tag">Royal Indigo</span>
           </NavLink>
         </div>
 
