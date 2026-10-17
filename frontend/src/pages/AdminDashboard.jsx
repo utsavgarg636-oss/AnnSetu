@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSocket } from '../context/SocketContext';
 import LiveMap from '../components/LiveMap';
+import DynamicFeatureSlot from '../extensions/DynamicFeatureSlot';
 import {
   Shield, CheckCircle2, Clock, AlertTriangle, Users, Utensils,
   Leaf, Activity, RefreshCw, ExternalLink, Award, FileText,
@@ -160,6 +161,9 @@ export default function AdminDashboard() {
           <button onClick={() => setToastMessage('')} className="toast-dismiss">✕</button>
         </div>
       )}
+
+      {/* Crisis Continuity & Infrastructure Resilience Extension */}
+      <DynamicFeatureSlot slotName="admin" />
 
       {/* KPI METRIC TILES */}
       <div className="admin-kpi-grid">

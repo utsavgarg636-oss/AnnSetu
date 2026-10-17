@@ -68,7 +68,7 @@ Only NGOs marked with `is_approved = 1` and `fssai_verified = 1` receive dispatc
 
 ---
 
-## 🎁 Extensibility Hooks
+## ⚡ Crisis Continuity & Infrastructure Resilience Slots
 
-- **Backend**: `backend/src/plugins/surpriseFeatureSlot.js` (`registerSurpriseFeature(app, io)`)
-- **Frontend**: `frontend/src/extensions/DynamicFeatureSlot.jsx` (`<DynamicFeatureSlot slotName="..." />`)
+- **Backend Extension**: `backend/src/plugins/surpriseFeatureSlot.js` (`registerSurpriseFeature(app, io)`)
+- **Frontend Extension**: `frontend/src/extensions/DynamicFeatureSlot.jsx` (`<DynamicFeatureSlot slotName="..." />`)

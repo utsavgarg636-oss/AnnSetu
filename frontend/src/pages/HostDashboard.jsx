@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSocket } from '../context/SocketContext';
+import DynamicFeatureSlot from '../extensions/DynamicFeatureSlot';
 import {
   Utensils, Sparkles, Clock, Thermometer, ShieldCheck, AlertCircle,
   Copy, Check, Send, MapPin, Phone, RefreshCw, KeyRound, CheckCircle2,
@@ -202,6 +203,9 @@ export default function HostDashboard() {
           <button onClick={() => setToastMessage('')} className="toast-dismiss">✕</button>
         </div>
       )}
+
+      {/* Crisis Continuity & Infrastructure Resilience Extension */}
+      <DynamicFeatureSlot slotName="host" />
 
       {/* Main 2-Column Bento Grid */}
       <div className="host-bento-grid">

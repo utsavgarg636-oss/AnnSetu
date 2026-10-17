@@ -2608,3 +2608,479 @@ body {
 .text-amber { color: #F59E0B; }
 .text-gold { color: #F59E0B; }
 .text-mono { font-family: var(--font-mono); }
+
+/* ═══════════════════════════════════════════════════════════════════
+   CRISIS CONTINUITY & INFRASTRUCTURE RESILIENCE MODE
+   ═══════════════════════════════════════════════════════════════════ */
+
+.crisis-continuity-card {
+  background: #FFFFFF;
+  border-radius: 16px;
+  padding: 22px 24px;
+  margin-bottom: 24px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.crisis-continuity-card.crisis-standby {
+  border: 1px solid rgba(22, 140, 135, 0.2);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+}
+
+.crisis-continuity-card.crisis-active {
+  border: 2px solid #F59E0B;
+  background: linear-gradient(180deg, #FFFDF8 0%, #FFFFFF 100%);
+  box-shadow: 0 8px 30px rgba(245, 158, 11, 0.12);
+}
+
+.crisis-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.crisis-title-wrap {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  flex: 1;
+  min-width: 280px;
+}
+
+.crisis-icon-badge {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: #FEF3C7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.15);
+}
+
+.crisis-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #0F172A;
+  line-height: 1.2;
+}
+
+.crisis-subtitle {
+  font-size: 0.82rem;
+  color: #64748B;
+  margin-top: 4px;
+  max-width: 720px;
+}
+
+.crisis-status-pill {
+  font-size: 0.68rem;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 999px;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.crisis-status-pill.pill-standby {
+  background: #E2E8F0;
+  color: #475569;
+}
+
+.crisis-status-pill.pill-active {
+  background: #FEF3C7;
+  color: #B45309;
+  border: 1px solid #FDE68A;
+}
+
+/* Master Toggle Switch */
+.crisis-toggle-action {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.toggle-switch-wrap {
+  position: relative;
+  display: inline-block;
+  width: 52px;
+  height: 28px;
+}
+
+.toggle-switch-wrap input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background-color: #CBD5E1;
+  transition: 0.3s;
+  border-radius: 34px;
+}
+
+.toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.3s;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+input:checked + .toggle-slider {
+  background-color: #F59E0B;
+}
+
+input:checked + .toggle-slider:before {
+  transform: translateX(24px);
+}
+
+.toggle-label-text {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #1E293B;
+  min-width: 55px;
+}
+
+/* Emergency Protocol Banner */
+.crisis-live-banner {
+  background: #FFFBEB;
+  border: 1px solid #FCD34D;
+  border-left: 5px solid #F59E0B;
+  border-radius: 10px;
+  padding: 12px 18px;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.banner-pulse-dot {
+  width: 10px;
+  height: 10px;
+  background: #DC2626;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #DC2626;
+  animation: pulse-dot 1.2s infinite;
+  flex-shrink: 0;
+}
+
+.banner-content {
+  flex: 1;
+}
+
+.banner-title {
+  display: block;
+  font-size: 0.88rem;
+  color: #92400E;
+}
+
+.banner-desc {
+  font-size: 0.78rem;
+  color: #78350F;
+  margin-top: 2px;
+}
+
+.banner-timestamp {
+  font-size: 0.72rem;
+  font-family: var(--font-mono);
+  color: #92400E;
+  white-space: nowrap;
+}
+
+/* 3-Mode Selector Grid */
+.crisis-modes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.crisis-mode-box {
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  padding: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.crisis-mode-box:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+}
+
+.crisis-mode-box.selected {
+  border-color: #38BDF8;
+  background: #F0F9FF;
+}
+
+.crisis-mode-box.active-mode {
+  border-color: #F59E0B;
+  background: #FFFDF5;
+  box-shadow: 0 4px 14px rgba(245, 158, 11, 0.15);
+}
+
+.mode-box-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.mode-icon-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.mode-icon-wrapper {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.mode-box-name {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #0F172A;
+}
+
+.mode-tag {
+  font-size: 0.68rem;
+  color: #64748B;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.active-tag-pill {
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  padding: 2px 7px;
+  border-radius: 4px;
+}
+
+.mode-box-desc {
+  font-size: 0.78rem;
+  color: #475569;
+  flex-grow: 1;
+  margin-bottom: 14px;
+  line-height: 1.45;
+}
+
+.mode-box-footer {
+  margin-top: auto;
+}
+
+.mode-select-btn {
+  width: 100%;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #CBD5E1;
+  background: #FFFFFF;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #334155;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.mode-select-btn:hover {
+  background: #F1F5F9;
+}
+
+.mode-select-btn.btn-engaged {
+  background: #F59E0B;
+  border-color: #D97706;
+  color: #FFFFFF;
+}
+
+.mode-select-btn.btn-selected {
+  background: #0284C7;
+  border-color: #0369A1;
+  color: #FFFFFF;
+}
+
+/* Expanded Telemetry Tray */
+.crisis-telemetry-tray {
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  padding: 16px;
+  margin-top: 6px;
+}
+
+.subpanel-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  margin-bottom: 12px;
+  color: #1E293B;
+}
+
+.status-live-chip {
+  margin-left: auto;
+  font-size: 0.68rem;
+  font-weight: 800;
+  background: #DCFCE7;
+  color: #15803D;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.facilities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 12px;
+}
+
+.facility-pill-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
+  padding: 10px 14px;
+}
+
+.fac-name {
+  font-size: 0.82rem;
+  color: #0F172A;
+}
+
+.temp-badge {
+  font-size: 0.75rem;
+  font-weight: 800;
+  background: #E0F2FE;
+  color: #0369A1;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.fac-metrics {
+  font-size: 0.74rem;
+  color: #475569;
+}
+
+.sms-feed-stream {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sms-stream-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 0.74rem;
+  flex-wrap: wrap;
+}
+
+.sms-time {
+  color: #0284C7;
+  font-weight: 700;
+}
+
+.sms-target {
+  color: #1E293B;
+}
+
+.sms-payload {
+  color: #64748B;
+  flex: 1;
+  min-width: 200px;
+}
+
+.sms-status-tag {
+  background: #E0F2FE;
+  color: #0369A1;
+  font-weight: 800;
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-size: 0.65rem;
+}
+
+.swarm-zones-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 12px;
+}
+
+.swarm-zone-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
+  padding: 12px;
+  text-align: left;
+}
+
+/* Navbar status pill */
+.navbar-resilience-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.navbar-resilience-pill.standby {
+  background: #F1F5F9;
+  color: #475569;
+  border: 1px solid #CBD5E1;
+}
+
+.navbar-resilience-pill.active {
+  background: #FEF3C7;
+  color: #92400E;
+  border: 1px solid #F59E0B;
+}
+
+.pulse-amber-dot {
+  width: 6px;
+  height: 6px;
+  background: #F59E0B;
+  border-radius: 50%;
+  animation: pulse-dot 1.2s infinite;
+}
+
+.crisis-toast-alert {
+  background: #FEF3C7;
+  border: 1px solid #FDE68A;
+  color: #92400E;
+  padding: 8px 14px;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
